@@ -5,7 +5,7 @@ print("After each question and answer is displayed please enter your choice, eit
 
 def new_game():
 
-    guesses = []
+    user_guesses = []
     correct_guesses = 0
     question_num = 1
 
@@ -14,14 +14,39 @@ def new_game():
         for y in choices[question_num - 1]:
             print(y)
         question_num += 1
-        user_guess = input("Enter your choice: ").upper()        
+        user_guess = input("Enter your choice: ").upper()
+        user_guesses.append(user_guess)
+
+        correct_guesses += check_answer(questions.get(x), user_guess)
+
+    display_score(correct_guesses, user_guesses)
+
+  
 
 
-def check_answer():
-    pass
 
-def display_score():
-    pass
+def check_answer(answer, guess):
+    if answer == guess:
+        print("Answer is CORRECT !")
+        return 1
+    else:
+        print("Answer is WRONG !")
+        return 0
+
+def display_score(correct, guesses):
+    print("Results")
+    print("Answers: ", end=" ")
+    for i in questions:
+        print(questions.get(i), end=" ")
+    print()
+
+    print("Guesses: ", end=" ")
+    for i in guesses:
+        print(i, end=" ")
+    print()        
+    
+    score = int((correct/20) * 100)
+    print("You have scored " + str(score) + "%")
 
 def play_again():
     play_more = input("Would you like to play again ? (yes/no): ")
@@ -75,3 +100,5 @@ choices = [["A. Fluorine", "B. Oxygen", "C. Nitrogen", "D. Chlorine"],
            ["A. Helium", "B. Nitrogen", "C. Xenon", "D. Argon"]]
 
 new_game()
+while play_again():
+    new_game()
