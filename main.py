@@ -1,3 +1,8 @@
+
+print("Welcome to Chemistry Quiz !!!")
+print("There are 20 multiple choice questions in total")
+print("After each question and answer is displayed please enter your choice, either 'A', 'B', 'C' or 'D' ")
+
 def new_game():
 
     guesses = []
@@ -5,7 +10,11 @@ def new_game():
     question_num = 1
 
     for x in questions:
-        print("key")
+        print(str(question_num) + ". " + x)
+        for y in choices[question_num - 1]:
+            print(y)
+        question_num += 1
+        user_guess = input("Enter your choice: ").upper()        
 
 
 def check_answer():
@@ -15,7 +24,11 @@ def display_score():
     pass
 
 def play_again():
-    pass
+    play_more = input("Would you like to play again ? (yes/no): ")
+    if play_more == "yes":
+        return True
+    else:
+        return False
 
 questions = {
     "Which element has the highest electronegativity?": "A",
