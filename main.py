@@ -2,13 +2,21 @@ from data import questions, choices
 from check_answer_file import check_answer
 from display_score_file import display_score
 from play_again_file import play_again
+from time_counter import counter
 import time
+
+
 
 print("Welcome to Chemistry Quiz !!!")
 time.sleep(1)
 print("There are 20 multiple choice questions in total")
 time.sleep(1)
 print("After each question and answer is displayed please enter your choice, either 'A', 'B', 'C' or 'D' ")
+time.sleep(1)
+start_time = time.ctime(time.time())
+print("The current time of starting is now " + start_time)
+time.sleep(1)
+print("Timer starts now, You may now begin !")
 time.sleep(1)
 
 def new_game():
@@ -37,3 +45,7 @@ def new_game():
 new_game()
 while play_again():
     new_game()
+
+
+
+    time.time() #current time since epoch

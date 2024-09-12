@@ -18,4 +18,5 @@ def display_score(correct, guesses):
     print()        
     
     score = int((correct/20) * 100)
+    finished_time = time.time()
     print("You have scored " + str(score) + "%")
